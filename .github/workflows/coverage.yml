@@ -1,0 +1,21 @@
+name: Coverage
+on:
+  push:
+    branches:
+      - master
+      - coverage
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup requirements
+      run: make setup-dev-environment
+    - name: Run tests with coverage
+      run: make coverage-run
+    - name: Generate coverage HTML
+      run: make coverage-html
