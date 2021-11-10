@@ -16,3 +16,5 @@ jobs:
       run: make docker-build
     - name: Run tests
       run: make docker-runtest-all
+    - name: Cache
+      uses: actions/cache@v2.1.6
